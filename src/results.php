@@ -16,7 +16,7 @@ $test = json_decode($test, true);
         $incorrect ++;
 }
 } else {
-    echo "Ошибка! Bыберете тест из ".'<a href="list.php">списка</a>'." и ответьте на все вопросы!";
+    echo "Ошибка! Bыберете тест из ".'<a href="../list.php">списка</a>'." и ответьте на все вопросы!";
     exit;
 }
 
