@@ -1,4 +1,10 @@
 <?php
+if (empty($_POST['user_name'])) {
+    echo '<hr>';
+    echo "Сертификат не сгенерирован. Вернитесь к ".'<a href="../list.php">списку тестов</a>'.", ответьте на все вопросы и введите своё имя! ";
+    exit;
+}
+
 if (!empty($_POST)) {
 $correct = 0;
 $incorrect = 0;
@@ -23,7 +29,8 @@ $test = json_decode($test, true);
 }
 
 $name = $_POST['user_name'];
-$text = 'Правильных ответов: '.$correct.'<br>'.'Неправильных ответов: '.$incorrect;
+$correct = 'Правильных ответов: '.$correct;
+$incorrect = 'Неправильных ответов: '.$incorrect;
 
 }
 
