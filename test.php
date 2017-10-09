@@ -18,7 +18,7 @@ if (!file_exists(__DIR__ . '/tests/' . $_GET['test'] . '.json')) {
 <a href="list.php">Список тестов</a>
 
 <form method="post" action="src/certificate.php">
-<label> Required: <input type="text" name="user_name" placeholder="Введите свое имя"></label>
+
 <?php
 
 
@@ -56,7 +56,8 @@ else {
 
 }
 echo '<hr>';
-echo '<input type="hidden" name="test" value="'.$test_name.'">';
+echo '<label>Ваше имя: <input type="text" name="user_name" placeholder="Введите свое имя"></label>'.'<br>';
+echo '<input type="hidden" name="test" value="'. $test_name .'">';
 echo '<br>'.'<input type="submit" value="Отправить ответы">';
 }
 
@@ -65,4 +66,5 @@ echo '<br>'.'<input type="submit" value="Отправить ответы">';
 
 </body>
 </html>
+
 
