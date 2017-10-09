@@ -22,7 +22,6 @@ $test = json_decode($test, true);
 
 }
 
-$fontSize = 35;
 $name = $_POST['user_name'];
 $text = 'Правильных ответов: '.$correct.'<br>'.'Неправильных ответов: '.$incorrect;
 
