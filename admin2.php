@@ -51,6 +51,7 @@
 
 		if($_FILES['uploaded_file']['error'] === UPLOAD_ERR_OK && move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $target_file))
 		{
+			header('Location: list.php');
 			echo "Файл успешно загружен"."<br>";
 		}
 		else
