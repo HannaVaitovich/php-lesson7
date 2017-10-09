@@ -1,18 +1,19 @@
 <?php
 include __DIR__ . '/results.php';
-$width = getimagesize(__DIR__ . '/cert.png')[0];
-$height = getimagesize(__DIR__ . '/cert.png')[1];
+$width = getimagesize(__DIR__ . '/image3.png')[0];
+$height = getimagesize(__DIR__ . '/image3.png')[1];
 $image = imagecreatetruecolor($width, $height);
-$im = imagecreatefrompng(__DIR__ . '/cert.png');
-$textColor = imagecolorallocate($im, 0, 0, 0);
-$nameX = ($width / 2) - $fontSize * mb_strlen($name) / 5;
-$textX = ($width / 2) - $fontSize * mb_strlen($text) / 7.5;
-imagecopy($image, $im, 0, 0, 0, 0, $width, $height);
-imagettftext($im, $fontSize + 10, 0, $nameX, 190, $textColor, './Roboto-Regular.ttf', $name);
-imagettftext($im, $fontSize, 0, $textX, 290, $textColor, './Roboto-Regular', $text);
+$imBox = imagecreatefrompng(__DIR__ . '/image3.png');
+$nameColor = imagecolorallocate($imBox, 0, 0, 0);
+$correctColor = imagecolorallocate($imBox, 14, 124, 5);
+$incorrectColor = imagecolorallocate($imBox, 218, 28, 6);
+imagecopy($image, $imBox, 0, 0, 0, 0, $width, $height);
+imagettftext($imBox, 35, 0, 50, 100, $nameColor, './Roboto-Regular.ttf', $name . ', ваш результат: ');
+imagettftext($imBox, 25, 0, 50, 200, $correctColor, './Roboto-Regular.ttf', $correct);
+imagettftext($imBox, 25, 0, 50, 250, $incorrectColor, './Roboto-Regular.ttf', $incorrect);
 header('Content-type: image/png');
-imagepng($im);
+imagepng($imBox);
 imagedestroy($image);
-imagedestroy($im);
+imagedestroy($imBox);
 
 ?>
